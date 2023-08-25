@@ -1,0 +1,72 @@
+How did I solve the problem:
+
+first I create multiple lists holding information for:
+    ROD memory
+    static memory
+    heap memory
+    stack memory
+
+    a list of functions
+    a list of every function and its line count
+    a list of every functions and its variable count
+
+
+    How the magic's made/ main function:
+        I go through the file line by line
+
+        Whenever I detect a line that starts with a type declaration I check whether it's a function or variable
+            If it's a variable I call my variable evaluator and it appends the data to my lists accordingly.
+
+            If it's a function I call my function evaluator that goes through the lines of the function,
+            detecting any variable declarations in the body/header, and calling variable evaluator accordingly.
+                The functionEvaluator also appends to my lists and returns the number of lines read.
+
+        After I'm done reading through the file I print my lists one by one to output my data.
+
+Each helper Function:
+    char* variableCheck(char currLine[999])
+        given a line of code that starts with a TYPE declaration, returns the correct type declaration
+        returns null if the line doesn't start with a type declaration
+
+    int sizeFinder(char *type, int num)
+        Given a type, and the number of that type, uses sizeof() to find how much memory has been allocated
+        returns int = space to be allocated
+
+    void addVar(char lists[4][9999], char *currLine, char *name, char *type, int location, char *func, int number)
+        Given all the necessary info of a variable, this function appends that variable's information to it's corresponding list
+        ex. static int x --->update the static list with int x, it's scope, and sizeFinder
+
+    int variableEval(char lists[4][9999], char *currLine, char *returnType, char *func)
+        Given a line that declares a variable, finds all the necessary information (name, location, etc.) and calls addVar the appropriate number of times.
+        returns the number of variables added
+
+    int functionCheck(char *currLine)
+        Given a line that starts with a type declaration, finds out if it corresponds to a function or variable
+        returns 0 if function is found, -1 otherwise
+
+    int functionHeader(char lists[4][9999], char *currLine, char* func)
+        Goes through the header of a function and calls variableEval on it's arguments accordingly
+        returns number of variables added
+
+    int functionEval(FILE * f, char lists[4][9999], char funcLineData[999], char funcVarData[999], char funcNames[999], char *currLine, char *returnType)
+        given a line that declares a function, parses through the function and adds corresponding data to it's lists
+        also counts the amount of lines in the function as it uses the same parser as main 
+        returns lines counted
+
+Attached in the zip or the 2 files i used to test output
+
+ ->EasierTest.text is just the example given in the handout, where my output was made to match exactly
+    it's output is found in easierout.txt
+
+
+ ->testData.txt is a modified version of the previous test, 
+    now with: lists of variables, string literals, malloc calls, and sized arrays.
+    it's output is found in TestDataout.txt
+
+
+    The only notes of the output worth considering as that, 
+        1. I consider lines with {} to be part of a function and therefore correspond to it's linecount/the total linecount
+            the handout doesnt do this, but i felt for testing it makes more sense as it helps to match with vscodes total count
+
+        2. when evaluating char **, it was not one of the basic types and i didnt have a clear answer as to what to put, but given that
+            most main functions have char **argv, i decided to add it to my typing list, i return sizeof(char**) for it's size in memory allocation

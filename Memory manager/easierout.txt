@@ -1,0 +1,39 @@
+***  exec // text ***
+easierTest.text
+
+### ROData ###       scope type  size
+
+### static data ###
+ evil_glob_var_1  GLOBAL  int  4
+ evil_glob_var_2  GLOBAL  float  4
+
+### heap ###
+
+
+####################
+####buffer space#### 
+####################
+
+
+### stack ###
+ x   fun1  int  4
+ y   fun1  int  4
+ z   fun1  int  4
+ z   fun2  float  4
+ x   fun2  float  4
+ argc   main  int  4
+ argv   main  char**  8
+ w   main  int  4
+
+**** STATS ****
+Total number of lines in the file: 26
+Total number of functions: 3
+ fun1,  fun2,  main, 
+- Total number of lines per functions:
+ fun1: 5
+ fun2: 4
+ main: 8
+- Total number of variables per function:
+ fun1: 3
+ fun2: 2
+ main: 3

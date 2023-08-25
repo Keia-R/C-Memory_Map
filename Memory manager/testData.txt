@@ -1,0 +1,33 @@
+ // evil global variables
+int *evil_glob_var_1 = malloc(4000);
+float evil_glob_var_2;
+
+int a, b;
+
+void fun1(int x)
+{
+  int j[10];
+  char k[10];
+  int g;
+  int gg;
+  int ggg;
+
+  char *testy = "12345";
+  printf("%d \n", x+y+z); 
+}
+
+int fun2(char car, float zed)
+{
+   float floaty;
+   return (int)(z+x);
+}
+
+int main(int argc, char** argv)
+{
+  int w;
+
+  fun1(w);
+  fun2();
+
+  return 0;
+}

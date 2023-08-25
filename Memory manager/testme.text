@@ -1,0 +1,63 @@
+/* mallefique.c */ 2
+// global variables of standard types
+ char glob_var_0;
+ char glob_var_00 = ’x’;
+ int glob_var_1;
+ int glob_var_01 = 1;
+ float glob_var_2;
+ float glob_var_02 = −1.0;
+
+ // global variables arrays
+ char glob_var_10[5];
+ int glob_var_11[5];
+ float glob_var_12[5];
+ // initialized
+ char glob_var_20[] = {’a’,’b’,’c’,’k’,’k’};
+ int glob_var_21[] = { −1, 0, 1};
+ float glob_var_22[] = {3.141516, 2.71, 0.3333, 0.5, 1.0, 2.0};
+
+ // global variables
+ char* glob_var_30;
+ int* glob_var_31;
+ float* glob_var_32; 
+
+ // global string literal
+ char* glob_str_lit = "Hello World!";
+
+ // global allocated memory
+ int* xi;
+ // this illegal C, ie. it shouldn’t work
+ //xi = malloc(sizeof(float));
+ 
+ void alpha()
+ {
+ // local variables of standard types
+ char loc_var_0;
+ char loc_var_00 = ’x’;
+ int loc_var_1;
+ int loc_var_01 = 1;
+ float loc_var_2;
+ float loc_var_02 = −1.0;
+
+ // local variables arrays
+ char loc_var_10[5];
+ int loc_var_11[5];
+ float loc_var_12[5];
+
+ // initialized
+ char loc_var_20[] = {’a’,’b’,’c’,’k’,’k’};
+ int loc_var_21[] = { −2, 0, 2, 4};
+ float loc_var_22[] = {3.141516, 2.71, 0.3333, 0.5, 1.0, 2.0};
+
+ // local variables
+ char* loc_var_30;
+ int* loc_var_31;
+ float* loc_var_32;
+
+ // local string literal
+ char* glob_str_lit = "Hello World!";
+
+ // local allocated memory
+ int* xi;
+ xi = malloc(sizeof(float));
+ }

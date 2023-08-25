@@ -1,0 +1,46 @@
+***  exec // text ***
+testData.txt
+
+### ROData ###       scope type  size
+testy    fun1  char *  6*sizeof(char)
+
+### static data ###
+ evil_glob_var_2  GLOBAL  float  4
+ a  GLOBAL  int  4
+ b  GLOBAL  int  4
+
+### heap ###
+evil_glob_var_1   GLOBAL  int *  4000
+
+
+####################
+####buffer space#### 
+####################
+
+
+### stack ###
+ x   fun1  int  4
+ j   fun1  int  40
+ k   fun1  char  10
+ g   fun1  int  4
+ gg   fun1  int  4
+ ggg   fun1  int  4
+ car   fun2  char  1
+ zed   fun2  float  4
+ floaty   fun2  float  4
+ argc   main  int  4
+ argv   main  char**  8
+ w   main  int  4
+
+**** STATS ****
+Total number of lines in the file: 33
+Total number of functions: 3
+ fun1,  fun2,  main, 
+- Total number of lines per functions:
+ fun1: 10
+ fun2: 4
+ main: 8
+- Total number of variables per function:
+ fun1: 7
+ fun2: 3
+ main: 3
